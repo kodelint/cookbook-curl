@@ -31,7 +31,7 @@ pipeline {
   post {
     success {
       echo 'UPLOAD Cookbook to Chef Server'
-      sh 'chef exec knife cookbook upload curl -o $WORKSPACE'
+      sh 'chef exec knife cookbook upload curl -o ../'
 
     }
 
