@@ -22,7 +22,7 @@ pipeline {
         }
       }
     }
-    stage('Test Kitchen') {
+    stage('Test Availibility of cummunity cookbooks') {
       steps {
         sh 'if [ ! -f Berksfile.lock ]; then chef exec berks install; else chef exec berks update; fi;'
       }
@@ -30,7 +30,7 @@ pipeline {
   }
   post {
     success {
-      echo 'Knife upload here'
+      echo 'UPLOAD Cookbook to Chef Server'
       sh 'chef exec knife cookbook upload curl -o $WORKSPACE'
 
     }
