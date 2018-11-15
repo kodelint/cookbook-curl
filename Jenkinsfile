@@ -43,6 +43,7 @@ pipeline {
       echo 'Successfully Uploaded the Cookbook to Chef Server'
       sh 'chef exec knife cookbook list'
 
+      }
     }
   }
 }
