@@ -17,7 +17,7 @@ pipeline {
           steps {
             sh 'echo "Starting foodcritic: "'
             sh 'chef exec foodcritic .'
-            sh 'chef exec bundle exec rake'
+            sh 'chef exec rake'
           }
         }
       }
