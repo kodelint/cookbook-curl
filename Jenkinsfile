@@ -12,6 +12,9 @@ pipeline {
       }
     }
     stage('Acceptance Testing') {
+      when {
+          anyOf { branch 'master'; branch 'production' }
+      }
       parallel {
         stage('foodcritic') {
           steps {
@@ -27,18 +30,19 @@ pipeline {
         sh 'if [ ! -f Berksfile.lock ]; then chef exec berks install; else chef exec berks update; fi;'
       }
     }
+    stage('\u27A1 Upload to Chef Server') {
+      when {
+          branch 'production'
+      }
+      steps { 
+        sh 'chef exec knife cookbook upload curl -o ../'
+      }
   }
   post {
     success {
-      echo 'UPLOAD Cookbook to Chef Server'
-      sh 'chef exec knife cookbook upload curl -o ../'
+      echo 'Successfully Uploaded the Cookbook to Chef Server'
+      sh 'chef exec knife cookbook list'
 
     }
-
-    failure {
-      echo 'The build failed'
-
-    }
-
   }
 }
