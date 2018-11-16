@@ -43,7 +43,7 @@ Install/Configure libcurl packages
 
 Chef Upload
 ============
-**Cookbook uploads - Branch: `production`
+**Cookbook uploads** - **Branch:** `production`
 
 License and Author
 ==================
