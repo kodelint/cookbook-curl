@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Running local CURL test'){
       steps{
-        sh "if [ `curl -s -o /dev/null -w "%{http_code}" http://www.google.com/` == 200 ]; then echo "CURL installed under: `which curl`, build successfull"; fi;"
+        sh '''if [ `curl -s -o /dev/null -w "%{http_code}" http://www.google.com/` == 200 ]; then echo "CURL installed, build successfull"; fi;'''
       }
     }
     stage('\u27A1 Upload to Chef Server') {
