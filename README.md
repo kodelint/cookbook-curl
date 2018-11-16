@@ -1,4 +1,5 @@
-[![Build Status](http://34.238.246.129:8080/buildStatus/icon?job=cookbook-curl/master)](http://34.238.246.129:8080/job/cookbook-curl/job/master/)
+[![Master Branch](http://34.238.246.129:8080/buildStatus/icon?job=cookbook-curl/master)](http://34.238.246.129:8080/job/cookbook-curl/job/master/)
+[![Production Branch](http://34.238.246.129:8080/buildStatus/icon?job=cookbook-curl/production)](http://34.238.246.129:8080/job/cookbook-curl/job/production/)
 
 Description
 ============
