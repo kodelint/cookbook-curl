@@ -22,11 +22,6 @@ pipeline {
         }
       }
     }
-    stage('Test Kitchen') {
-      steps {
-        sh 'if [ ! -f Berksfile.lock ]; then chef exec berks install; else chef exec berks update; fi;'
-      }
-    }
   }
   post {
     success {
