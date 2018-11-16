@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Acceptance Testing') {
       when {
-          anyOf { branch 'master'; branch 'production'; branch: 'test-jenkinsfile' }
+          anyOf { branch 'master'; branch 'production' }
       }
       parallel {
         stage('foodcritic') {
