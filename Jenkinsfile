@@ -22,14 +22,21 @@ pipeline {
         }
       }
     }
+    stage('Upload Cookbook') {
+      when {
+        branch 'production'
+      }
+      steps {
+        sh 'chef exec knife cookbook upload curl -o ../'
+      }
+    }
   }
   post {
     success {
-      echo 'Knife upload here'
-      sh 'chef exec knife cookbook upload curl -o $WORKSPACE/cookbook-curl'
+      echo 'Build Passed'
+      sh 'chef exec knife cookbook list'
 
     }
-
     failure {
       echo 'The build failed'
 
