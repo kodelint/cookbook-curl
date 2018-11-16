@@ -30,7 +30,14 @@ pipeline {
     }
     stage('Running local CURL test'){
       steps{
-        sh '''if [ `curl -s -o /dev/null -w "%{http_code}" http://www.google.com/` == 200 ]; then echo "CURL installed, build successfull"; fi;'''
+        sh '''
+        STATUS=$(curl -s -o /dev/null -w '%{http_code}' http://www.google.com)
+        if [ $STATUS -eq 200 ]; then
+          echo "Got 200! All done!"
+        else
+          echo "Got $STATUS :( Not done yet..."
+        fi
+        '''
       }
     }
     stage('\u27A1 Upload to Chef Server') {
